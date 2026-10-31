@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DISBOARD 서버 필터</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="filter.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow"><span class="brand-mark" aria-hidden="true">#</span> DISBOARD FILTER <span class="badge">LOCAL</span></p>
+      <h1>서버 필터</h1>
+      <p class="intro">태그·소개글·서버 이름을 함께 검사해 숨겨요.</p>
+      <fieldset id="fields" disabled>
+        <legend class="sr-only">서버 필터 설정</legend>
+        <label class="toggle" for="enabled">
+          <span>서버 필터 사용</span>
+          <input id="enabled" type="checkbox" checked>
+        </label>
+        <details class="extra-filters">
+          <summary>인원 · 리뷰 · 한자 · 방문 · New 필터</summary>
+          <form id="online-range-form">
+            <p class="field-label">온라인 인원 수</p>
+            <div class="online-range">
+              <label for="min-online">최소 (이상)<input id="min-online" type="number" min="0" step="1" placeholder="제한 없음" inputmode="numeric"></label>
+              <label for="max-online">최대 (이하)<input id="max-online" type="number" min="0" step="1" placeholder="제한 없음" inputmode="numeric"></label>
+            </div>
+            <p class="hint">목록에 표시된 온라인 인원 기준 · 비워 두면 제한 없음<br>온라인 인원이 표시되지 않은 서버는 범위 설정 시 숨겨요.</p>
+            <button type="submit" class="secondary">인원 범위 저장</button>
+          </form>
+          <label class="toggle" for="exclude-reviewed"><span>리뷰 별점 있는 서버 제외</span><input id="exclude-reviewed" type="checkbox"></label>
+          <label class="toggle" for="exclude-han"><span>한자 포함 서버 제외</span><input id="exclude-han" type="checkbox"></label>
+          <label class="toggle" for="exclude-visited"><span>방문한 서버 제외</span><input id="exclude-visited" type="checkbox"></label>
+          <label class="toggle" for="exclude-new"><span>New! 표시 서버 제외</span><input id="exclude-new" type="checkbox"></label>
+          <p class="hint">참가 버튼을 누르면 방문함으로 저장해요. 실제 Discord 가입 여부를 확인하지는 않아요.</p>
+          <p class="hint">서버 이름·태그·소개글의 한자를 검사해요. 일본어 한자도 포함되며, 히라가나·가타카나만으로는 제외하지 않아요.</p>
+        </details>
+        <form id="keyword-form">
+          <label class="field-label" id="keyword-label" for="keywords">숨길 키워드 추가</label>
+          <p class="hint" id="keyword-hint">줄바꿈 또는 쉼표로 구분 · 태그·소개글·서버 이름 중 한 곳이라도 포함되면 숨김</p>
+          <textarea id="keywords" rows="2" placeholder="예: 대리, 홍보, 성인" aria-describedby="keyword-hint" spellcheck="false"></textarea>
+          <div class="editor-actions">
+            <button id="save-keywords" type="submit">키워드 추가</button>
+            <button id="cancel-edit" class="secondary" type="button" hidden>취소</button>
+          </div>
+        </form>
+        <h2>저장한 키워드 <span id="keyword-count">0개</span></h2>
+        <p class="hint" id="empty" hidden>아직 저장한 키워드가 없어요.</p>
+        <ul id="keyword-list" aria-label="저장한 차단 키워드"></ul>
+        <div class="backup-actions">
+          <button id="export-keywords" class="secondary" type="button">내보내기</button>
+          <button id="import-keywords" class="secondary" type="button">가져오기</button>
+          <input id="import-file" type="file" accept=".json,application/json" hidden>
+        </div>
+        <p class="hint">키워드·모든 필터 설정·방문 기록을 JSON으로 백업해요. 가져오면 설정을 복원하고 키워드·방문 기록은 기존 내역에 합쳐요.</p>
+      </fieldset>
+      <p id="status" role="status" aria-live="polite">목록을 불러오는 중…</p>
+      <footer><span class="online-dot" aria-hidden="true"></span> 이 브라우저에 저장 · 숨긴 자리 자동 채우기</footer>
+    </main>
+  </body>
+</html>

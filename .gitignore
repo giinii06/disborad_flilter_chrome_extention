@@ -1,0 +1,6 @@
+node_modules/
+.playwright-mcp/
+dist/
+.DS_Store
+.codegraph/
+discord_for_streaming/

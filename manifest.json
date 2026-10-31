@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "DISBOARD 서버 필터",
+  "version": "1.4.1",
+  "description": "키워드·인원·리뷰·New·방문 기록으로 서버를 숨기고 빈자리를 채웁니다. 설정과 방문 기록 전체 백업을 지원합니다.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "DISBOARD 서버 필터 설정",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["https://disboard.org/*"],
+    "js": ["filter.js", "content.js"],
+    "css": ["content.css"],
+    "run_at": "document_idle"
+  }]
+}
