@@ -3,6 +3,7 @@
 DISBOARD에서 원하지 않는 서버를 숨겨 주는 Chrome 확장 프로그램입니다.
 
 
+
 ## Chrome에 설치하기
 
 1. [최신 버전 다운로드](https://github.com/giinii06/disborad_flilter_chrome_extention/releases/latest)를 엽니다.
@@ -14,7 +15,7 @@ DISBOARD에서 원하지 않는 서버를 숨겨 주는 Chrome 확장 프로그�
 7. Chrome 오른쪽 위 퍼즐 아이콘에서 **DISBOARD 서버 필터**를 찾아 핀으로 고정합니다.
 8. [DISBOARD](https://disboard.org/ko/)를 열거나 새로고침하고, 확장 아이콘을 눌러 원하는 필터를 설정합니다.
 
-설치 후에도 압축을 푼 폴더는 옮기거나 삭제하지 마세요.
+설치 후에도 압축을 푼 폴더는 옮기거나 삭제하지 마세요. 처음부터 압축을 푼 폴더는 문서 폴더 같은 곳에 넣으면 좋습니다. 
 
 ## 적용된 모습
 
